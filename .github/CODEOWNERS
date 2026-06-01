@@ -1,0 +1,6 @@
+# Code owners for rails-skills.
+# Every PR auto-requests review from the owner(s) below.
+# Enforced when the branch ruleset has "Require review from Code Owners" enabled.
+
+# Default owner for everything in the repo:
+*       @sandeepmvl

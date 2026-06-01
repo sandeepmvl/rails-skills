@@ -33,20 +33,30 @@ A pack of independent **Claude Skills** ([open standard](https://docs.claude.com
 
 ## Quick install
 
+> **Work across many projects?** Install **once, globally** instead of per-repo. The Rails skills are description-gated — they stay dormant on non-Rails projects (React, Go, Python…) and wake up only for Rails work. See [Two install modes](docs/install.md#two-install-modes--pick-one).
+
 ### Claude Code
+
+**Per-project:**
 
 ```bash
 cd <your-rails-app>
-git clone https://github.com/<your-handle>/rails-skills .claude/skills
+git clone https://github.com/sandeepmvl/rails-skills .claude/skills
 ```
 
-Then start Claude Code in your project. The orchestrator skill (`rails-project-discovery`) will interview you and route to the right downstream skills automatically.
+**Global — all projects (recommended for multi-project devs):**
+
+```bash
+git clone https://github.com/sandeepmvl/rails-skills ~/.claude/skills/rails-skills
+```
+
+Then start Claude Code. The orchestrator skill (`rails-project-discovery`) interviews you and routes to the right downstream skills automatically — and only triggers when you're actually working on Rails.
 
 ### Cursor
 
 ```bash
 cd <your-rails-app>
-git clone https://github.com/<your-handle>/rails-skills .cursor/skills
+git clone https://github.com/sandeepmvl/rails-skills .cursor/skills
 ```
 
 ### Other tools
