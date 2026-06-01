@@ -40,3 +40,4 @@ node_modules/
 coverage/
 .tool-versions
 .ruby-version
+LAUNCH.md
