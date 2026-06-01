@@ -1,0 +1,81 @@
+# config/deploy.yml — Kamal 2 deployment template.
+# Pair with .kamal/secrets (gitignored) for credentials.
+
+service: myapp
+image: yourregistry.io/myapp
+
+servers:
+  web:
+    hosts:
+      - 1.2.3.4
+      - 5.6.7.8
+    options:
+      "add-host": host.docker.internal:host-gateway
+  jobs:
+    hosts:
+      - 9.10.11.12
+    cmd: bin/jobs
+
+proxy:
+  ssl: true
+  host: myapp.example.com
+  app_port: 80
+  healthcheck:
+    interval: 3
+    path: /up
+    timeout: 3
+
+registry:
+  server: yourregistry.io
+  username: your-username
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+env:
+  clear:
+    RAILS_LOG_TO_STDOUT: "1"
+    RAILS_SERVE_STATIC_FILES: "1"
+    SOLID_QUEUE_IN_PUMA: "false"
+    DB_HOST: postgres-internal
+    REDIS_URL: redis://redis-internal:6379/0
+  secret:
+    - RAILS_MASTER_KEY
+    - POSTGRES_PASSWORD
+    - STRIPE_SECRET_KEY
+
+builder:
+  arch: amd64
+  cache:
+    type: registry
+
+accessories:
+  postgres:
+    image: postgres:16
+    host: 1.2.3.4
+    port: "5432:5432"
+    env:
+      clear:
+        POSTGRES_USER: rails
+        POSTGRES_DB: myapp_production
+      secret:
+        - POSTGRES_PASSWORD
+    directories:
+      - data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    host: 1.2.3.4
+    port: "6379:6379"
+    directories:
+      - data:/data
+
+deploy:
+  hooks:
+    pre-deploy:
+      - bin/kamal app exec --reuse "./bin/rails db:migrate"
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell:   app exec --interactive --reuse "bash"
+  logs:    app logs -f
+  dbc:     app exec --interactive --reuse "bin/rails dbconsole"

@@ -1,0 +1,6 @@
+# Place at the repo root as `.rspec` (no extension).
+--require spec_helper
+--require rails_helper
+--color
+--format documentation
+--order random

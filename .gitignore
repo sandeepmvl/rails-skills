@@ -1,0 +1,42 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+.netrwhist
+
+# Logs / temp / scratch
+*.log
+tmp/
+.tmp/
+*.bak
+
+# Local env / secrets — never commit
+.env
+.env.*
+*.local
+
+# Tooling output (if linters/scripts ever run in-repo)
+node_modules/
+coverage/
+.tool-versions
+.ruby-version

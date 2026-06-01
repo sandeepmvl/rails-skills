@@ -1,0 +1,55 @@
+# syntax=docker/dockerfile:1
+# Multi-stage Dockerfile for Rails 8 — production-ready.
+# Pin RUBY_VERSION patch for reproducibility.
+ARG RUBY_VERSION=3.3.7
+FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
+
+WORKDIR /rails
+
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y \
+      curl libjemalloc2 libvips postgresql-client && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+ENV RAILS_ENV="production" \
+    BUNDLE_DEPLOYMENT="1" \
+    BUNDLE_PATH="/usr/local/bundle" \
+    BUNDLE_WITHOUT="development:test" \
+    RAILS_SERVE_STATIC_FILES="1" \
+    RAILS_LOG_TO_STDOUT="1" \
+    MALLOC_ARENA_MAX="2" \
+    LD_PRELOAD="libjemalloc.so.2"
+
+# ===== BUILD STAGE =====
+FROM base AS build
+
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y \
+      build-essential git pkg-config libpq-dev libyaml-dev && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+COPY Gemfile Gemfile.lock ./
+RUN bundle install --jobs=4 --retry=3 && \
+    bundle exec bootsnap precompile --gemfile && \
+    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
+
+COPY . .
+
+RUN bundle exec bootsnap precompile app/ lib/ && \
+    SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile
+
+# ===== RUNTIME STAGE =====
+FROM base AS runtime
+
+COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
+COPY --from=build /rails /rails
+
+RUN groupadd --system --gid 1000 rails && \
+    useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
+    chown -R rails:rails db log storage tmp
+USER rails:rails
+
+ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+
+EXPOSE 80
+CMD ["./bin/thrust", "./bin/rails", "server"]
