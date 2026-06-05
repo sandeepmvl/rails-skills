@@ -137,7 +137,13 @@ See `docs/install.md` for OpenAI Codex, Gemini CLI, Antigravity, and Windsurf in
 | 55 | `ci-cd-github-actions-rails` | matrix sharding, bundler-cache, OIDC, Kamal deploy |
 | 56 | `ci-cd-gitlab-rails` | stages, services, id_tokens for OIDC, Auto DevOps caveat |
 | 57 | `ci-cd-jenkins-rails` | Declarative pipeline, credentials store, when NOT Jenkins |
+
+### Tooling & project-fit (2 skills)
+
+| # | Skill | What it does |
+|---|---|---|
 | 58 | `rubocop-and-code-quality` | RuboCop + omakase preset + rubocop-rails/-performance/-rspec, SimpleCov, erb_lint, RBS vs Sorbet |
+| 59 | `scaffold-project-skills` | Interview your app + generate project-specific local skills (tenancy, domain workflows, your verify loop) — the product-aware layer the generic pack can't ship |
 
 See [`PLAN.md`](./PLAN.md) for the full roadmap and rationale.
 
@@ -178,6 +184,20 @@ The agent also adds a Bullet config to catch the next N+1 in development before 
 - **Not magic.** A `rails-upgrade-4-to-8` skill will *guide* and *accelerate* the upgrade. It will not do it autonomously. Rails upgrades require human judgment on gem replacements and test fixes.
 - **Not a replacement for the Rails Guides.** These skills target the gaps where AI agents go wrong, not the basics.
 - **Not a gem.** Nothing here gets `require`d into your Rails app. Skills are markdown files consumed by AI coding agents.
+
+## Using this alongside your project-specific skills
+
+`rails-skills` is a **baseline, not a replacement** for skills that know your product.
+
+If your app already has local skills encoding its own rules — tenant isolation, domain workflows, payment/booking logic, your test + verification gates, branch discipline — **those should stay the source of truth.** A general Rails pack can't know what matters for *your* launch, and you don't want a broad skill layer competing with sharper local instructions.
+
+The recommended pattern:
+
+- **Greenfield / no local skills yet** → install the whole pack; it's a strong default.
+- **Mature app with its own skills** → keep your local skills authoritative. Cherry-pick from this pack only where you have a genuine gap (migration safety, security-review checklists, Hotwire conventions, bug→regression discipline are common ones to lift).
+- **Conflicts?** Your project conventions win. If you're on Minitest + system/E2E verification rather than RSpec + strict test-first, follow your own loop — the patterns here transfer, the ceremony is optional.
+
+Think of it as a senior Rails dev's default instincts, not a process you must adopt wholesale.
 
 ## Philosophy
 

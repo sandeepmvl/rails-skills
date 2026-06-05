@@ -8,8 +8,9 @@
 - **v0.2 — Expansion (drafted).** Twenty-four skills, `skills/16`–`skills/39`. Reviewed in batches; blocking fixes applied.
 - **v0.3 — Specialization (drafted).** Eighteen skills, `skills/40`–`skills/57`. Reviewed; blocking fixes applied.
 - **v0.3.1 — Quality tooling (drafted).** One skill, `skills/58-rubocop-and-code-quality`. Added post-review per request.
+- **v0.3.2 — Project-aware layer (drafted).** One skill, `skills/59-scaffold-project-skills` — generates local, product-specific skills for the user's own app. Added in response to launch feedback that the generic pack can't know a specific product's domain.
 
-All 59 skill folders exist with `SKILL.md` + `evals.md`. Final review pass + README skills table update is the remaining gate before launch.
+All 60 skill folders exist with `SKILL.md` + `evals.md`.
 
 ## Anti-goals (what we are deliberately NOT shipping in v0.1)
 

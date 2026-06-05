@@ -124,6 +124,7 @@ Regardless of answers, these apply to every Rails project:
 | File uploads (avatars, attachments) | `activestorage-uploads` |
 | Email features (transactional, marketing) | `actionmailer-baseline` |
 | Running production console / data fixes | `console-safety-production` |
+| Existing app with its own domain/conventions, or "the generic skills don't know my app" | `scaffold-project-skills` — generate local product-aware skills that become the source of truth; this pack stays the fallback |
 
 ### After loading
 
