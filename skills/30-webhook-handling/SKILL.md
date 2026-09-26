@@ -296,5 +296,5 @@ end
 - [GitHub webhooks docs](https://docs.github.com/en/webhooks)
 - [Slack webhook signature verification](https://api.slack.com/authentication/verifying-requests-from-slack)
 - [Twilio webhook signatures](https://www.twilio.com/docs/usage/webhooks/webhooks-security)
-- [Stripe Ruby — Webhook helper](https://stripe.com/docs/api/webhooks)
+- [Stripe — webhook signature verification](https://docs.stripe.com/webhooks/signatures)
 - [ActiveSupport::SecurityUtils](https://api.rubyonrails.org/classes/ActiveSupport/SecurityUtils.html)
