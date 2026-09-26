@@ -31,7 +31,7 @@ Three Rails minor versions. Never skip — `rails app:update` is per-version dif
 
 ```ruby
 # Gemfile (outside any group)
-gem "next_rails", "~> 1.6"
+gem "next_rails", "~> 1.7"
 
 # Existing Rails 7.x:
 gem "rails", "~> 7.2.0"
@@ -179,7 +179,7 @@ The new `bin/rails generate authentication` is for green-fields. Existing Devise
 | Solid Cable adoption | Defer; only if Redis isn't already in use |
 | Propshaft migration | Defer; assess Sprockets-specific usage first |
 | Built-in auth generator | Skip; keep Devise |
-| Ruby version | Upgrade to 3.3+ before Rails 8 |
+| Ruby version | Upgrade to 3.4+ before Rails 8 |
 | `bin/rails app:update` | Run for every minor hop; review diffs |
 
 ## Common mistakes to refuse
