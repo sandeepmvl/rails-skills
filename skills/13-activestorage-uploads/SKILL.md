@@ -118,7 +118,8 @@ end
 
 ```ruby
 # Gemfile
-gem "image_processing", "~> 1.13"
+gem "image_processing", "~> 2.1"
+gem "ruby-vips"  # required explicitly since image_processing 2.0 (mini_magick/ruby-vips are now soft deps)
 # libvips installed at the OS level (faster + lower memory than ImageMagick)
 ```
 
