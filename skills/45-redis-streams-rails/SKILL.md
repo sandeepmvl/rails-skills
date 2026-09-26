@@ -28,7 +28,7 @@ If you need anything beyond fire-and-forget broadcasts: Streams, not pub/sub.
 
 ```ruby
 # Gemfile
-gem "redis", "~> 5.0"
+gem "redis", "~> 6.0"
 gem "connection_pool"  # for thread-safe sharing
 ```
 
