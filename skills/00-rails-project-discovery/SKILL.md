@@ -176,7 +176,7 @@ This is a multi-month process for non-trivial apps, not a single command. Do not
 
 1. Confirm current Ruby + Rails versions from `Gemfile` and `Gemfile.lock`.
 2. Confirm the target version.
-3. Recommend the `next_rails` gem (latest 1.6.0+) for dual-booting: it creates `Gemfile.next` + `Gemfile.next.lock` and switches via `BUNDLE_GEMFILE`. Add `next_rails` outside any group so `NextRails.next?` is available everywhere.
+3. Recommend the `next_rails` gem (latest 1.7.0+) for dual-booting: it creates `Gemfile.next` + `Gemfile.next.lock` and switches via `BUNDLE_GEMFILE`. Add `next_rails` outside any group so `NextRails.next?` is available everywhere.
 4. Generate an upgrade plan, **one minor version at a time** (e.g. 4.2 → 5.0 → 5.1 → 5.2 → 6.0 → 6.1 → 7.0 → 7.1 → 7.2 → 8.0). Never skip versions.
 5. For each hop, the steps are: bump Gemfile, `bundle update rails`, run `rails app:update` (carefully review diffs in `config/`), run the test suite, fix deprecations, ship to staging, ship to prod, then begin the next hop.
 
