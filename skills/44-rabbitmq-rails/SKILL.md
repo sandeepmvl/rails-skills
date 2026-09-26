@@ -20,7 +20,7 @@ Counter-positions:
 
 ```ruby
 # Gemfile
-gem "bunny", "~> 2.22"
+gem "bunny", "~> 3.4"
 gem "sneakers", "~> 2.12"
 ```
 
