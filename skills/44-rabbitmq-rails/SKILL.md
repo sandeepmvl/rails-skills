@@ -24,8 +24,6 @@ gem "bunny", "~> 2.14"   # sneakers 2.12 (its latest release, Dec 2019) pins bun
 gem "sneakers", "~> 2.12"
 ```
 
-> `sneakers` hasn't cut a release since 2019 and caps you on Bunny 2.x. If you don't need a Rails-integrated consumer process, publish and consume with plain `bunny` (~> 3.4, actively maintained) instead and skip `sneakers` — that's a bigger pattern change than a version bump, so it's not applied here, but worth knowing before you adopt this stack today.
-
 ```ruby
 # config/initializers/rabbitmq.rb
 RABBIT = Bunny.new(
