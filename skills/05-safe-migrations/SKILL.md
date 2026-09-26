@@ -390,6 +390,5 @@ For deeper guidance:
 - [Postgres docs — CREATE INDEX CONCURRENTLY](https://www.postgresql.org/docs/current/sql-createindex.html)
 - [Postgres docs — Locking](https://www.postgresql.org/docs/current/explicit-locking.html)
 - [GitLab engineering — Migration style guide](https://docs.gitlab.com/ee/development/migration_style_guide.html) — battle-tested at 100M+ rows
-- [Andrew Kane — Safer Migrations](https://ankane.org/safer-migrations) — the rationale behind strong_migrations
 - [Shopify — Online migrations](https://shopify.engineering/) — case studies of zero-downtime migrations at scale
 - [Stripe — Online Schema Changes](https://stripe.com/blog/online-migrations) — production playbook
