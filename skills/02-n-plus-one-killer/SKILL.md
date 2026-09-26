@@ -337,5 +337,5 @@ For full EXPLAIN ANALYZE workflow (reading plans, spotting seq scans, identifyin
 - [Rails 7 query log tags](https://guides.rubyonrails.org/active_record_querying.html#enabling-query-log-tags) — production attribution
 - [Marginalia README](https://github.com/basecamp/marginalia) — SQL comment attribution (alternative to built-in)
 - [pg_stat_statements docs](https://www.postgresql.org/docs/current/pgstatstatements.html) — DB-side query stats
-- [Scout APM Rails docs](https://scoutapm.com/docs/ruby/rails) — APM-based N+1 detection
+- [Scout APM Ruby docs](https://scoutapm.com/docs/ruby) — APM-based N+1 detection
 - [Skylight docs](https://www.skylight.io/) — endpoint-level performance
