@@ -446,7 +446,7 @@ end
 ## Sources
 
 - [Rails Guides — Securing Rails Applications](https://guides.rubyonrails.org/security.html) — canonical
-- [Brakeman — checks list](https://brakemanscanner.org/docs/checks/)
+- [Brakeman — warning types](https://brakemanscanner.org/docs/warning_types/)
 - [bundler-audit README](https://github.com/rubysec/bundler-audit)
 - [secure_headers README](https://github.com/github/secure_headers)
 - [rack-attack README](https://github.com/rack/rack-attack)
