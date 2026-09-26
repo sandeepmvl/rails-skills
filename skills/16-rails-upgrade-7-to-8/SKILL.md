@@ -93,11 +93,11 @@ Same hop dance. App tends to work with minor warnings.
 
 ### Pattern 4: 7.2 → 8.0 hop — the real changes
 
-**Required Ruby:** 3.2+ (Rails 8.0 minimum). By late 2026 the recommended floor is Ruby 3.4.x (current stable, released Dec 2025) for YJIT improvements and bundled gem changes. If you're on 3.1, upgrade Ruby first.
+**Required Ruby:** 3.2+ (Rails 8.0 minimum). Ruby 3.4 (released Dec 2024) is a solid floor for YJIT improvements and bundled gem changes — as of Sept 2026 its latest maintenance release is 3.4.11, though Ruby 4.0 is the current stable series if you want the newest line. If you're on 3.1, upgrade Ruby first.
 
 ```ruby
 # Gemfile
-ruby "3.4.9"
+ruby "3.4.11"
 gem "rails", "~> 8.0.0"
 ```
 
