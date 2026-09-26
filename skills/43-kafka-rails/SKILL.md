@@ -20,7 +20,7 @@ Counter-positions:
 
 ```ruby
 # Gemfile
-gem "karafka", "~> 2.4"
+gem "karafka", "~> 2.6"
 gem "karafka-web"  # admin UI
 gem "avro_turf"    # for schema registry; or "google-protobuf"
 ```
