@@ -325,4 +325,4 @@ For most Rails 8 apps, lograge + request tagging + Sentry covers the first 12 mo
 - [Rails Guides — Debugging](https://guides.rubyonrails.org/debugging_rails_applications.html#log-levels)
 - [Better Stack — Rails logging guide](https://betterstack.com/community/guides/logging/)
 - [OWASP — Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html) — what NOT to log
-- [Datadog — Rails observability](https://www.datadoghq.com/blog/instrument-ruby-with-datadog/)
+- [Datadog — Ruby tracing docs](https://docs.datadoghq.com/tracing/trace_collection/dd_libraries/ruby/)
