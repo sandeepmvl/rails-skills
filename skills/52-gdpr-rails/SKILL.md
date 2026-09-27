@@ -76,7 +76,7 @@ class DsarExporter
 end
 ```
 
-Deliver as a downloadable JSON or CSV bundle. Respond within 30 days (GDPR Art. 12). Build it as a self-service feature so users get the file in seconds.
+Deliver as a downloadable JSON or CSV bundle. Respond within one month (GDPR Art. 12 — extendable by two further months for complex requests). Build it as a self-service feature so users get the file in seconds.
 
 ## Pattern 2: Right to erasure ("right to be forgotten")
 
@@ -301,7 +301,7 @@ If you host EU-user data, prefer an EU region (eu-west, eu-central). Stripe / AW
 - Don't store data "in case it's useful." Collect only what you need.
 - Don't make consent the lawful basis for things that should be Contract (e.g., email for account).
 - Don't bundle consents ("by signing up, you agree to marketing"). Separate opt-ins.
-- Don't ignore DSARs. 30-day deadline.
+- Don't ignore DSARs. One-month deadline (Art. 12), extendable by two further months for complex requests.
 - Don't anonymise badly ("user-42" is still personal data if you can map back).
 - Don't send analytics events with raw email. Pseudonymise.
 - Don't send EU data to non-DPA vendors.
