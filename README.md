@@ -63,6 +63,46 @@ git clone https://github.com/sandeepmvl/rails-skills .cursor/skills
 
 See `docs/install.md` for OpenAI Codex, Gemini CLI, Antigravity, and Windsurf instructions.
 
+## Complete skills index
+
+All 60 skills at a glance. Click a skill name below to jump to its detailed description, or browse the full [**PLAN.md**](./PLAN.md) for the roadmap and what's coming next.
+
+| # | Skill |
+|---|---|
+| **v0.1 — Foundation** ||
+| 00 | [`rails-project-discovery`](#v01--foundation-16-skills) |
+| 01 | [`activerecord-patterns`](#v01--foundation-16-skills) |
+| 02 | [`n-plus-one-killer`](#v01--foundation-16-skills) |
+| 03 | [`service-objects-vs-fat-models`](#v01--foundation-16-skills) |
+| 04 | [`rspec-testing-pyramid`](#v01--foundation-16-skills) |
+| 05 | [`safe-migrations`](#v01--foundation-16-skills) |
+| 06 | [`rails-api-design`](#v01--foundation-16-skills) |
+| 07 | [`solid-queue-and-sidekiq`](#v01--foundation-16-skills) |
+| 08 | [`devise-pundit-rodauth`](#v01--foundation-16-skills) |
+| 09 | [`kamal-docker-production`](#v01--foundation-16-skills) |
+| 10 | [`rails-security-baseline`](#v01--foundation-16-skills) |
+| 11 | [`rails-caching-strategy`](#v01--foundation-16-skills) |
+| 12 | [`hotwire-turbo-stimulus`](#v01--foundation-16-skills) |
+| 13 | [`activestorage-uploads`](#v01--foundation-16-skills) |
+| 14 | [`actionmailer-baseline`](#v01--foundation-16-skills) |
+| 15 | [`observability-baseline`](#v01--foundation-16-skills) |
+| **v0.2 — Expansion** ||
+| 16–20 | Upgrade skills (Rails 7→8, 6→7, 5→6, 4→5, 3→4) |
+| 21–23 | Database migration skills (Postgres ↔ MySQL, Oracle → Postgres) |
+| 24–26 | Frontend integration (React, Vue, Angular with Rails) |
+| 27–39 | Performance, infrastructure, APIs, search, tenancy, compliance |
+| **v0.3 — Specialization** ||
+| 40–42 | Microservices (when NOT to, decomposition, strangler fig) |
+| 43–47 | Event-driven & message buses (Kafka, RabbitMQ, Redis Streams, CDC, events) |
+| 48–49 | Observability (distributed tracing, advanced metrics/SLOs) |
+| 50–54 | Compliance (HIPAA, PCI-DSS, GDPR, SOC 2, data warehouse) |
+| 55–57 | CI/CD (GitHub Actions, GitLab, Jenkins) |
+| **Tooling & project-fit** ||
+| 58 | [`rubocop-and-code-quality`](#tooling--project-fit-2-skills) |
+| 59 | [`scaffold-project-skills`](#tooling--project-fit-2-skills) |
+
+For the full list with one-line descriptions of each skill, see **v0.1**, **v0.2**, **v0.3**, and **Tooling** sections below.
+
 ## The skills
 
 ### v0.1 — Foundation (16 skills)
