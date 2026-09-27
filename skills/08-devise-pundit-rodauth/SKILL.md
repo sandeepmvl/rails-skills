@@ -151,24 +151,24 @@ Rodauth is database-agnostic, configures via a DSL in `app/misc/rodauth_app.rb`:
 ```ruby
 class RodauthApp < Rodauth::Rails::App
   configure do
-    enable :create_account, :verify_account, :login, :logout, :reset_password,
-           :change_password, :change_login, :remember,
+    enable :create_account, :verify_account, :verify_account_grace_period, :login, :logout,
+           :reset_password, :change_password, :change_login, :remember,
            :otp, :recovery_codes, :webauthn,           # ← MFA
-           :audit_logging, :password_complexity, :disallow_password_reuse
+           :lockout, :audit_logging, :password_complexity, :disallow_password_reuse
 
     password_minimum_length 12
     # Rodauth's password_complexity feature exposes individual setting methods, not a hash.
     # For stronger checks, prefer the `:disallow_common_passwords` feature or the `zxcvbn` gem.
     password_meets_requirements? { |pw| pw =~ /[A-Z]/ && pw =~ /\d/ && pw =~ /[^\w]/ }
     require_password_confirmation? true
-    audit_logging_redact_request_params %w[password password_confirmation]
 
-    # Email verification grace period
+    # Email verification grace period — requires enabling :verify_account_grace_period above
     verify_account_grace_period 7.days
 
-    # Account-lockout settings
-    lockout_after_failed_logins 10
-    lockout_duration 30.minutes
+    # Account-lockout settings — requires enabling :lockout above (real method names,
+    # not lockout_after_failed_logins/lockout_duration, which don't exist in Rodauth)
+    max_invalid_logins 10
+    account_lockouts_deadline_interval(days: 1)
   end
 end
 ```
