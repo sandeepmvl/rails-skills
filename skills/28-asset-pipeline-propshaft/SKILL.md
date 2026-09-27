@@ -141,11 +141,11 @@ Propshaft generates URLs like `https://cdn.example.com/assets/application-abc123
 
 ```ruby
 # config/importmap.rb
-pin "react", to: "https://ga.jspm.io/npm:react@18/index.js"
-pin "react-dom", to: "https://ga.jspm.io/npm:react-dom@18/index.js"
+pin "react", to: "https://ga.jspm.io/npm:react@18.3.1/index.js"
+pin "react-dom", to: "https://ga.jspm.io/npm:react-dom@18.3.1/index.js"
 ```
 
-CDN-hosted modules. Skip yarn entirely for these. Useful when you want one or two npm libraries without a bundler.
+CDN-hosted modules. Skip yarn entirely for these. Useful when you want one or two npm libraries without a bundler. jspm.io requires an exact semver (`@18.3.1`, not a bare `@18` major tag) or the pin 404s.
 
 ### Pattern 7: Vendoring importmap pins
 
