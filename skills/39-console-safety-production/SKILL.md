@@ -22,21 +22,17 @@ Loading production environment (Rails 8.0.0)
 my-app(prod)> User.first
 ```
 
-The prompt label and color are controlled by IRB itself (seeded with the app name and env by `Rails::Console`), not by a Rails config flag — there's no `config.console_environment_color`. Rails registers its prompt under the key `IRB.conf[:PROMPT][:RAILS_PROMPT]` and only auto-selects it with `IRB.conf[:PROMPT_MODE] = :RAILS_PROMPT if IRB.conf[:PROMPT_MODE] == :DEFAULT` — so if your `~/.irbrc` sets `PROMPT_MODE` to anything else (including a custom key), Rails leaves your choice alone. That means defining a new prompt hash in `.irbrc` without also setting `PROMPT_MODE` has **no effect** — it's registered but never selected. Two ways to customize:
+The prompt label and color are controlled by IRB itself (seeded with the app name and env by `Rails::Console`), not by a Rails config flag — there's no `config.console_environment_color`. `Rails::Console#irb_console` calls `IRB.setup(nil)` (which loads your `~/.irbrc`) and then **unconditionally** assigns `IRB.conf[:PROMPT][:RAILS_PROMPT] = ...` afterward — so overwriting `IRB.conf[:PROMPT][:RAILS_PROMPT]` from `.irbrc` has **no effect**; Rails reassigns that exact key right after your file loads. Define your own named prompt key instead and select it explicitly:
 
 ```ruby
 # ~/.irbrc — applies to your shell, not the app
-# Option A: override Rails' own prompt in place (simplest — Rails already selects :RAILS_PROMPT by default)
 env_label = defined?(Rails) ? Rails.env[0, 4] : "?"
-IRB.conf[:PROMPT][:RAILS_PROMPT] = {
+IRB.conf[:PROMPT][:MY_PROMPT] = {
   PROMPT_I: "\e[31m%N(#{env_label})>\e[0m ",
   PROMPT_S: "\e[31m%N(#{env_label})*\e[0m ",
   PROMPT_C: "\e[31m%N(#{env_label})?\e[0m ",
   RETURN:   "=> %s\n"
 }
-
-# Option B: define your own named prompt AND select it explicitly
-IRB.conf[:PROMPT][:MY_PROMPT] = { PROMPT_I: "\e[31m%N(#{env_label})>\e[0m ", RETURN: "=> %s\n" }
 IRB.conf[:PROMPT_MODE] = :MY_PROMPT
 ```
 

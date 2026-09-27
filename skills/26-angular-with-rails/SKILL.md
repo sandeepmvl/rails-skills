@@ -1,6 +1,6 @@
 ---
 name: angular-with-rails
-description: Integrate Angular with a Ruby on Rails app — classical API + SPA as the default (Angular's full-framework model doesn't fit Inertia well), standalone components (default since Angular 19, current stable v22+), NgRx vs signals, JWT auth flow, CORS configuration, deploying Angular separately from Rails. Use when integrating Angular into Rails, the user mentions Angular CLI, NgRx, standalone components, Angular signals, or asks "how do I use Angular with Rails".
+description: Integrate Angular with a Ruby on Rails app — classical API + SPA as the default (Angular's full-framework model doesn't fit Inertia well), standalone components (CLI default since Angular 17, current stable v22+), NgRx vs signals, JWT auth flow, CORS configuration, deploying Angular separately from Rails. Use when integrating Angular into Rails, the user mentions Angular CLI, NgRx, standalone components, Angular signals, or asks "how do I use Angular with Rails".
 ---
 
 # Angular with Rails
@@ -9,7 +9,7 @@ description: Integrate Angular with a Ruby on Rails app — classical API + SPA 
 
 ## The opinion
 
-> **Classical API + SPA for Angular. Rails-API mode. Angular 19+ (standalone components are the default; current stable is v22). Signals or NgRx for state. JWT auth (short-lived + refresh). Deploy Angular and Rails separately. Inertia has an Angular adapter but the ecosystem is thin — don't pick it for new work.**
+> **Classical API + SPA for Angular. Rails-API mode. Angular 17+ (the CLI has scaffolded standalone components/directives/pipes by default since v17; current stable is v22). Signals or NgRx for state. JWT auth (short-lived + refresh). Deploy Angular and Rails separately. Inertia has an Angular adapter but the ecosystem is thin — don't pick it for new work.**
 
 ## Setup
 
@@ -95,7 +95,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
 Register interceptor in `app.config.ts` via `provideHttpClient(withInterceptors([authInterceptor]))`.
 
-### Pattern 3: Standalone components (default since Angular 19)
+### Pattern 3: Standalone components (CLI default since Angular 17)
 
 ```typescript
 // frontend/src/app/app.config.ts — register HttpClient provider once for the app
@@ -135,7 +135,7 @@ export class PostListComponent {
 
 **Why `provideHttpClient` in app.config:** standalone components require explicit HTTP provider registration. Forgetting it raises `NullInjectorError: HttpClient` at runtime.
 
-**Why standalone:** less boilerplate, no NgModules, faster compilation. Standalone APIs entered developer preview in Angular 14 and graduated to stable in Angular 15 (Nov 2022); they became the CLI/schematics default for new components in Angular 19 (current stable is v22 — verified via npm's `@angular/core` registry).
+**Why standalone:** less boilerplate, no NgModules, faster compilation. Standalone APIs entered developer preview in Angular 14 and graduated to stable in Angular 15 (Nov 2022); `ng generate` has scaffolded standalone components, directives, and pipes by default since Angular 17 ("Standalone APIs from the start," blog.angular.dev). Current stable is v22 — verified via npm's `@angular/core` registry.
 
 ### Pattern 4: State management — signals vs NgRx
 
