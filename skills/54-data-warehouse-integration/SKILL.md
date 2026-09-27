@@ -255,4 +255,4 @@ Explicit allowlist beats blocklist.
 - [Census](https://www.getcensus.com/)
 - [Snowflake](https://www.snowflake.com/)
 - [BigQuery](https://cloud.google.com/bigquery)
-- [Modern Data Stack — Tristan Handy / Fishtown / dbt Labs](https://www.getdbt.com/blog/the-modern-data-stack-past-present-and-future)
+- [Modern Data Stack — Tristan Handy / Fishtown / dbt Labs](https://www.getdbt.com/blog/future-of-the-modern-data-stack)
