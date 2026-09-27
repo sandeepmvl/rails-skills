@@ -157,7 +157,7 @@ See `kafka-rails` for karafka setup.
 
 This is how you backfill a new search index without writing a backfill job.
 
-For large tables, `incremental snapshot` (Debezium 1.7+) does it in chunks without blocking writes.
+For large tables, `incremental snapshot` (Debezium 1.6+) does it in chunks without blocking writes.
 
 ## Pattern: Schema evolution
 

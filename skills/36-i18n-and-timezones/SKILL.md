@@ -48,11 +48,7 @@ config.i18n.fallbacks = [I18n.default_locale]   # or true for chain fallback
 config.i18n.fallbacks.map = { fr: :en, de: :en, ja: :en }  # explicit per-locale
 ```
 
-```ruby
-# config/initializers/i18n.rb — enable Fallbacks backend (required for `fallbacks.map`)
-require "i18n/backend/fallbacks"
-I18n::Backend::Simple.include I18n::Backend::Fallbacks
-```
+No extra initializer needed: Rails' own `I18n::Railtie` (`activesupport/lib/active_support/i18n_railtie.rb`) already includes `I18n::Backend::Fallbacks` into the backend automatically whenever `config.i18n.fallbacks` is set — manually `require`-ing and including the fallbacks module yourself is redundant boilerplate carried over from pre-Rails-Railtie I18n setups.
 
 Missing French translation → falls back to English. Never falls back to a missing key (`translation missing` placeholder).
 
