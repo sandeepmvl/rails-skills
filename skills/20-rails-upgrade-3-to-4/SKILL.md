@@ -1,6 +1,6 @@
 ---
 name: rails-upgrade-3-to-4
-description: Upgrade a Ruby on Rails app from 3.x to 4.x — strong parameters replacing attr_accessible / attr_protected, the asset pipeline overhaul, the Turbolinks arrival, Ruby 2.0+ requirement, Bundler-style routes file, the version hop sequence. Use when upgrading legacy Rails 3 apps, the user mentions attr_accessible, Turbolinks, protected_attributes gem, asset pipeline, or asks how to escape Rails 3.
+description: Upgrade a Ruby on Rails app from 3.x to 4.x — strong parameters replacing attr_accessible / attr_protected, the asset pipeline overhaul, the Turbolinks arrival, the Ruby 1.9.3+ floor (2.0 preferred), Bundler-style routes file, the version hop sequence. Use when upgrading legacy Rails 3 apps, the user mentions attr_accessible, Turbolinks, protected_attributes gem, asset pipeline, or asks how to escape Rails 3.
 ---
 
 # Rails 3 → 4 Upgrade
@@ -9,7 +9,7 @@ description: Upgrade a Ruby on Rails app from 3.x to 4.x — strong parameters r
 
 ## The opinion
 
-> **Dual-boot with `next_rails`. Hop 3.2 → 4.0 → 4.1 → 4.2. Ruby 2.0+ required for 4.0; Ruby 2.2.2+ for 4.2. Use the `protected_attributes` gem as a temporary bridge from `attr_accessible` to strong parameters.**
+> **Dual-boot with `next_rails`. Hop 3.2 → 4.0 → 4.1 → 4.2. Ruby 1.9.3+ required for the whole 4.0–4.2 series (Rails' own gemspec never raised the floor within Rails 4); 2.0 was merely "preferred," per the Rails 4.0 release notes. Use the `protected_attributes` gem as a temporary bridge from `attr_accessible` to strong parameters.**
 
 ## The hop sequence
 
@@ -22,7 +22,7 @@ description: Upgrade a Ruby on Rails app from 3.x to 4.x — strong parameters r
 ### Pattern 1: 3.2 → 4.0
 
 **Mandatory:**
-- Ruby 2.0+.
+- Ruby 1.9.3+ (Rails 4.0's actual gemspec floor); 2.0 is the preferred version per the official release notes.
 - Switch from `attr_accessible` / `attr_protected` to strong parameters (or stay on `protected_attributes` gem as a bridge).
 - New asset pipeline; old Sprockets behavior changed.
 - Turbolinks ships (can disable if breaking the app).
