@@ -396,5 +396,4 @@ Use `perform_now` for synchronous testing. Use `have_enqueued_job` in request sp
 - [sidekiq-unique-jobs](https://github.com/mhenrixon/sidekiq-unique-jobs)
 - [GoodJob (counter-position)](https://github.com/bensheldon/good_job)
 - [Stripe — Idempotency keys](https://docs.stripe.com/api/idempotent_requests)
-- [Anyway Labs — Sidekiq production checklist](https://github.com/anyway-labs)
 - [Rails Guide — Active Support Instrumentation (enqueue.active_job)](https://guides.rubyonrails.org/active_support_instrumentation.html)
