@@ -22,17 +22,25 @@ Loading production environment (Rails 8.0.0)
 my-app(prod)> User.first
 ```
 
-The prompt label and color are controlled by IRB itself (seeded with the app name and env by `Rails::Console`), not by a Rails config flag — there's no `config.console_environment_color`. Customize via `~/.irbrc` if you want a different prompt:
+The prompt label and color are controlled by IRB itself (seeded with the app name and env by `Rails::Console`), not by a Rails config flag — there's no `config.console_environment_color`. Rails registers its prompt under the key `IRB.conf[:PROMPT][:RAILS_PROMPT]` and only auto-selects it with `IRB.conf[:PROMPT_MODE] = :RAILS_PROMPT if IRB.conf[:PROMPT_MODE] == :DEFAULT` — so if your `~/.irbrc` sets `PROMPT_MODE` to anything else (including a custom key), Rails leaves your choice alone. That means defining a new prompt hash in `.irbrc` without also setting `PROMPT_MODE` has **no effect** — it's registered but never selected. Two ways to customize:
 
 ```ruby
 # ~/.irbrc — applies to your shell, not the app
-IRB.conf[:PROMPT][:RAILS_ENV] = {
-  PROMPT_I: "\e[31m%N(prod)>\e[0m ",
-  PROMPT_S: "\e[31m%N(prod)*\e[0m ",
-  PROMPT_C: "\e[31m%N(prod)?\e[0m ",
+# Option A: override Rails' own prompt in place (simplest — Rails already selects :RAILS_PROMPT by default)
+env_label = defined?(Rails) ? Rails.env[0, 4] : "?"
+IRB.conf[:PROMPT][:RAILS_PROMPT] = {
+  PROMPT_I: "\e[31m%N(#{env_label})>\e[0m ",
+  PROMPT_S: "\e[31m%N(#{env_label})*\e[0m ",
+  PROMPT_C: "\e[31m%N(#{env_label})?\e[0m ",
   RETURN:   "=> %s\n"
 }
+
+# Option B: define your own named prompt AND select it explicitly
+IRB.conf[:PROMPT][:MY_PROMPT] = { PROMPT_I: "\e[31m%N(#{env_label})>\e[0m ", RETURN: "=> %s\n" }
+IRB.conf[:PROMPT_MODE] = :MY_PROMPT
 ```
+
+Build the environment label from `Rails.env` (as above) rather than hard-coding `"prod"` — the same `.irbrc` also runs your development and staging consoles, and a hard-coded label mislabels every environment except production.
 
 ## Pattern 2: Sandbox mode
 
@@ -280,6 +288,7 @@ For everything else: write the script, get it reviewed, run it deliberately.
 
 - [Rails console docs](https://guides.rubyonrails.org/command_line.html#bin-rails-console)
 - [Rails 7.2 customized console prompt (PR #50796)](https://github.com/rails/rails/pull/50796)
+- [Rails 8.0 IRBConsole source (`PROMPT_MODE` selection logic)](https://github.com/rails/rails/blob/v8.0.0/railties/lib/rails/commands/console/irb_console.rb)
 - [web-console RCE history (CVE-2015-3224)](https://www.rapid7.com/db/modules/exploit/multi/http/rails_web_console_v2_code_exec/)
 - [Sandbox mode](https://api.rubyonrails.org/classes/Rails/Console.html)
 - [Strong Migrations](https://github.com/ankane/strong_migrations)
