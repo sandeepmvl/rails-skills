@@ -135,7 +135,7 @@ export class PostListComponent {
 
 **Why `provideHttpClient` in app.config:** standalone components require explicit HTTP provider registration. Forgetting it raises `NullInjectorError: HttpClient` at runtime.
 
-**Why standalone:** less boilerplate, no NgModules, faster compilation. Introduced in Angular 17, the default for new components since Angular 19 (current stable is v22 — verified via npm's `@angular/core` registry).
+**Why standalone:** less boilerplate, no NgModules, faster compilation. Standalone APIs entered developer preview in Angular 14 and graduated to stable in Angular 15 (Nov 2022); they became the CLI/schematics default for new components in Angular 19 (current stable is v22 — verified via npm's `@angular/core` registry).
 
 ### Pattern 4: State management — signals vs NgRx
 
