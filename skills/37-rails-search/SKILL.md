@@ -209,7 +209,7 @@ When you need:
 ```ruby
 # Gemfile
 gem "searchkick"
-gem "elasticsearch", "~> 8.0"  # or "opensearch-ruby" for OpenSearch
+gem "elasticsearch"  # or "opensearch-ruby" for OpenSearch — Searchkick's latest release works with ES 8/9 and OpenSearch 2/3, no version pin needed
 ```
 
 ```ruby

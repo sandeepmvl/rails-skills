@@ -283,4 +283,4 @@ Settings → Merge requests:
 - [GitLab JWT / OIDC](https://docs.gitlab.com/ee/ci/cloud_services/aws/)
 - [Auto DevOps](https://docs.gitlab.com/ee/topics/autodevops/)
 - [GitLab SAST templates](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [Knapsack Pro on GitLab](https://docs.knapsackpro.com/ci/gitlab/)
+- [Knapsack Pro CI docs](https://docs.knapsackpro.com/continuous_integration/)

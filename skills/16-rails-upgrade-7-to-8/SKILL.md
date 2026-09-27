@@ -31,7 +31,7 @@ Three Rails minor versions. Never skip — `rails app:update` is per-version dif
 
 ```ruby
 # Gemfile (outside any group)
-gem "next_rails", "~> 1.6"
+gem "next_rails", "~> 1.7"
 
 # Existing Rails 7.x:
 gem "rails", "~> 7.2.0"
@@ -93,11 +93,11 @@ Same hop dance. App tends to work with minor warnings.
 
 ### Pattern 4: 7.2 → 8.0 hop — the real changes
 
-**Required Ruby:** 3.2+ (Rails 8.0 minimum). In 2026 the recommended floor is Ruby 3.3.x for YJIT improvements and bundled gem changes. If you're on 3.1, upgrade Ruby first.
+**Required Ruby:** 3.2+ (Rails 8.0 minimum). Ruby 3.4 (released Dec 2024) is a solid floor for YJIT improvements and bundled gem changes — as of Sept 2026 its latest maintenance release is 3.4.11, though Ruby 4.0 is the current stable series if you want the newest line. If you're on 3.1, upgrade Ruby first.
 
 ```ruby
 # Gemfile
-ruby "3.3.7"
+ruby "3.4.11"
 gem "rails", "~> 8.0.0"
 ```
 
@@ -179,7 +179,7 @@ The new `bin/rails generate authentication` is for green-fields. Existing Devise
 | Solid Cable adoption | Defer; only if Redis isn't already in use |
 | Propshaft migration | Defer; assess Sprockets-specific usage first |
 | Built-in auth generator | Skip; keep Devise |
-| Ruby version | Upgrade to 3.3+ before Rails 8 |
+| Ruby version | Upgrade to 3.4+ before Rails 8 |
 | `bin/rails app:update` | Run for every minor hop; review diffs |
 
 ## Common mistakes to refuse

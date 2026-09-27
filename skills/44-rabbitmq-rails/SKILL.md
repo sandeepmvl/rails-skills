@@ -20,7 +20,7 @@ Counter-positions:
 
 ```ruby
 # Gemfile
-gem "bunny", "~> 2.22"
+gem "bunny", "~> 2.14"   # sneakers 2.12 (its latest release, Dec 2019) pins bunny ~> 2.14 and hasn't shipped a bunny-3.x-compatible update
 gem "sneakers", "~> 2.12"
 ```
 

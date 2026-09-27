@@ -246,7 +246,7 @@ end
 ## Sources
 
 - [Flipper docs](https://www.flippercloud.io/docs)
-- [Flipper Rails guide](https://github.com/flippercloud/flipper/blob/main/docs/Rails.md)
+- [Flipper Rails demo app](https://github.com/flippercloud/flipper-rails-demo)
 - [Flipper UI](https://github.com/flippercloud/flipper/tree/main/lib/flipper/ui)
 - [GrowthBook (counter-position)](https://www.growthbook.io/)
 - [Statsig (counter-position)](https://statsig.com/)

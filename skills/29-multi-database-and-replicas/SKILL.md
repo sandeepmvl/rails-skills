@@ -206,9 +206,10 @@ Defer until a single replica + denormalization doesn't keep up. Most apps never 
 ### Pattern 7: Trilogy + connection pooling
 
 ```ruby
-# Gemfile — Rails 8 ships Trilogy as the default MySQL adapter; no gem needed.
-# For Rails 7.0/7.1, add explicitly:
-# gem "trilogy"
+# Gemfile — Rails 8 offers Trilogy as an explicit, opt-in MySQL adapter
+# (`rails new --database=trilogy`, which adds the gem for you); it is
+# not the default for `rails new` or for plain `--database=mysql`.
+gem "trilogy"
 ```
 
 Connection pooling at the app level via Rails' built-in pool (per-process). For Postgres-heavy apps, add PgBouncer in front of the DB:

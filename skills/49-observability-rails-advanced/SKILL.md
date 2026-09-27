@@ -247,5 +247,5 @@ Make it cheap to roll back. Make it cheap to deploy fixes. If you're freezing ev
 - [Prometheus](https://prometheus.io/)
 - [Grafana](https://grafana.com/)
 - [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/)
-- [Observability Engineering — Charity Majors et al.](https://www.honeycomb.io/observability-engineering-oreilly-book-2022)
+- [Observability Engineering — Charity Majors et al.](https://www.honeycomb.io/observability-engineering-oreilly-book)
 - [Datadog APM](https://www.datadoghq.com/product/apm/)

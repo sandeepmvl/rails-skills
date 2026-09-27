@@ -246,7 +246,7 @@ end
 
 - [ActiveModel::Model docs](https://api.rubyonrails.org/classes/ActiveModel/Model.html)
 - [Reform gem (counter-position)](https://trailblazer.to/2.1/docs/reform/) — heavier form objects
-- [Draper gem](https://github.com/drapergems/draper) — decorators
-- [Code Climate — 7 Patterns for Refactoring Fat Models](https://thoughtbot.com/blog/refactor-models) (original Bryan Helmkamp post)
+- [Draper gem](https://github.com/drapergem/draper) — decorators
+- [Code Climate — 7 Ways to Decompose Fat ActiveRecord Models](https://codeclimate.com/legacy/7-ways-to-decompose-fat-activerecord-models) (original Bryan Helmkamp post)
 - [Sandi Metz — Practical Object-Oriented Design](https://sandimetz.com/)
 - [thoughtbot — Decorators in Rails](https://thoughtbot.com/blog)

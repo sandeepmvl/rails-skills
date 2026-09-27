@@ -208,6 +208,6 @@ For most Rails apps: Puma is the right answer.
 - [Nate Berkopec — Sizing Puma](https://www.speedshop.co/2017/10/12/appserver.html)
 - [Speedshop — Puma in Production](https://www.speedshop.co/)
 - [jemalloc and Ruby](https://www.speedshop.co/2017/12/04/malloc-doubles-ruby-memory.html)
-- [YJIT docs](https://github.com/ruby/ruby/blob/master/doc/yjit/yjit.md)
+- [YJIT docs](https://github.com/ruby/ruby/blob/master/doc/jit/yjit.md)
 - [Heroku Puma sizing](https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server)
 - [PumaWorkerKiller](https://github.com/zombocom/puma_worker_killer)

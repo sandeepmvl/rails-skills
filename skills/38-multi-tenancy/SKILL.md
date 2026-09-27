@@ -17,7 +17,7 @@ Why row-scoped:
 - Cost: query overhead per row vs separate table — negligible on a tenant_id index.
 
 Counter-positions:
-- **`apartment` gem (schema-per-tenant)** — strong isolation, but breaks Rails 6+ multi-DB, fragile under migrations. Largely unmaintained.
+- **`apartment` gem (schema-per-tenant)** — strong isolation, fragile under migrations. Last released 2019-06-19 (rubygems.org version history) — largely unmaintained; expect friction integrating it with newer Rails multi-DB features.
 - **Database-per-tenant** — strongest isolation, hardest ops. Reserve for regulated industries or Enterprise tier.
 
 ## Pattern 1: acts_as_tenant setup
@@ -276,7 +276,7 @@ Audit log every impersonation. Don't share admin and tenant cookies.
 ## Common mistakes to refuse
 
 - Don't use `default_scope` for tenancy. Hard to unscope, surprises in raw SQL.
-- Don't use the `apartment` gem in greenfield apps (unmaintained, breaks with Rails 6+ multi-DB).
+- Don't use the `apartment` gem in greenfield apps (unmaintained since 2019).
 - Don't forget background-job tenancy. Always pass `account_id` and wrap with `ActsAsTenant.with_tenant`.
 - Don't write `Post.find(params[:id])` without tenant scoping in tenant-owned controllers.
 - Don't share Redis / cache keys across tenants without namespacing — cache leakage is real.

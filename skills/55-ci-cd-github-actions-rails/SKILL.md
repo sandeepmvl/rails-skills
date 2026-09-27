@@ -66,15 +66,15 @@ jobs:
       CI_NODE_INDEX: ${{ matrix.ci_node_index }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true   # gems cached automatically per Gemfile.lock hash
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "24"
           cache: yarn
 
       - run: yarn install --frozen-lockfile
@@ -90,7 +90,7 @@ jobs:
 
       - name: Upload coverage
         if: matrix.ci_node_index == 0
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 ```
@@ -108,7 +108,7 @@ Matrix shards split RSpec into 4 parallel jobs (use `knapsack_pro`, `parallel_te
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
@@ -121,15 +121,15 @@ Matrix shards split RSpec into 4 parallel jobs (use `knapsack_pro`, `parallel_te
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
 
       # GitHub's CodeQL — free for public, paid for private
-      - uses: github/codeql-action/init@v3
+      - uses: github/codeql-action/init@v4
         with: { languages: ruby }
-      - uses: github/codeql-action/analyze@v3
+      - uses: github/codeql-action/analyze@v4
 ```
 
 Separate jobs = parallel = faster signal.
@@ -147,13 +147,13 @@ Separate jobs = parallel = faster signal.
         env: { POSTGRES_PASSWORD: postgres }
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
 
-      - uses: actions/setup-node@v4
-        with: { node-version: "20", cache: yarn }
+      - uses: actions/setup-node@v7
+        with: { node-version: "24", cache: yarn }
       - run: yarn install --frozen-lockfile
       - run: bin/rails assets:precompile
 
@@ -165,7 +165,7 @@ Separate jobs = parallel = faster signal.
 
       - name: Upload screenshots on failure
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: system-screenshots
           path: tmp/screenshots
@@ -198,23 +198,23 @@ jobs:
     environment: production    # required-reviewer gate in GH UI
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
 
-      - uses: docker/setup-buildx-action@v3
+      - uses: docker/setup-buildx-action@v4
 
       - name: Login to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up SSH for Kamal
-        uses: webfactory/ssh-agent@v0.9.0
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
 
@@ -232,7 +232,7 @@ Wait for CI green via branch protection (set in repo Settings → Branches → m
 ## Pattern 5: OIDC instead of static AWS keys
 
 ```yaml
-- uses: aws-actions/configure-aws-credentials@v4
+- uses: aws-actions/configure-aws-credentials@v6
   with:
     role-to-assume: arn:aws:iam::123456789012:role/github-deploy
     aws-region: us-east-1
@@ -290,7 +290,7 @@ jobs:
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --app myapp-pr-${{ github.event.number }}
 ```

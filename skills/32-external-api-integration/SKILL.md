@@ -259,5 +259,5 @@ Faraday's `response :logger` handles most of this. Pair with Sentry / OTel for d
 - [Stoplight (circuit breaker)](https://github.com/bolshakov/stoplight)
 - [VCR](https://github.com/vcr/vcr)
 - [HTTPX](https://honeyryderchuck.gitlab.io/httpx/)
-- [Faraday Logger filter pattern](https://lostisland.github.io/faraday/middleware/logger)
+- [Faraday Logger filter pattern](https://lostisland.github.io/faraday/#/middleware/included/logging)
 - [Idempotency keys — Stripe](https://docs.stripe.com/api/idempotent_requests)

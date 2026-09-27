@@ -13,7 +13,7 @@ description: PCI-DSS compliance for Rails apps handling card data — the "don't
 
 ## What is PCI-DSS?
 
-The Payment Card Industry Data Security Standard, v4.0. 12 requirements, ~300 controls. Annual audit for high-volume merchants; self-assessment questionnaires (SAQ) for smaller ones.
+The Payment Card Industry Data Security Standard, currently v4.0.1 (the maintenance update to v4.0). 12 requirements, ~300 controls. Annual audit for high-volume merchants; self-assessment questionnaires (SAQ) for smaller ones.
 
 | SAQ | Who | Scope |
 |---|---|---|
@@ -222,7 +222,7 @@ end
 
 ## Sources
 
-- [PCI-DSS v4.0 Standard](https://www.pcisecuritystandards.org/document_library/)
+- [PCI-DSS v4.0.1 Standard](https://www.pcisecuritystandards.org/document_library/)
 - [Stripe Elements](https://stripe.com/docs/payments/elements)
 - [Stripe Checkout](https://stripe.com/docs/payments/checkout)
 - [Stripe PCI guide](https://stripe.com/docs/security/guide)

@@ -456,7 +456,7 @@ Form object binds the form; service object does the work. Full form-object patte
 ## Sources
 
 - [DHH — Put Chubby Models on a Diet with Concerns](https://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns)
-- [Bryan Helmkamp — 7 Patterns to Refactor Fat ActiveRecord Models](https://thoughtbot.com/blog/refactor-models) (Code Climate; archived)
+- [Bryan Helmkamp — 7 Ways to Decompose Fat ActiveRecord Models](https://codeclimate.com/legacy/7-ways-to-decompose-fat-activerecord-models) (Code Climate)
 - [Rails Guides — Active Record Basics](https://guides.rubyonrails.org/active_record_basics.html)
 - [Rails Guides — Active Record Callbacks](https://guides.rubyonrails.org/active_record_callbacks.html)
 - [Avdi Grimm — Confident Ruby](https://avdi.codes/) (Result-style returns)

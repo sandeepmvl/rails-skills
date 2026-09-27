@@ -45,7 +45,7 @@ end
 
 ### Pattern 2: Sanitization (the default + custom)
 
-Rails sanitizes ActionText output by default. The allowed tags include common formatting (`<strong>`, `<em>`, `<h1-6>`, `<a>`, `<img>`, etc.) — see `Rails::Html::SafeListSanitizer` for the exact list.
+Rails sanitizes ActionText output by default. The allowed tags include common formatting (`<strong>`, `<em>`, `<h1-6>`, `<a>`, `<img>`, etc.) — see `Rails::HTML5::SafeListSanitizer` for the exact list.
 
 To restrict further:
 
@@ -213,7 +213,7 @@ For non-trivial migrations, do this in a background job, not a migration. See `s
 - [Rails Guides — Action Text Overview](https://guides.rubyonrails.org/action_text_overview.html)
 - [Trix editor](https://trix-editor.org/)
 - [ActionText API](https://api.rubyonrails.org/classes/ActionText.html)
-- [Sanitization safe-list](https://api.rubyonrails.org/classes/Rails/Html/SafeListSanitizer.html)
+- [Sanitization safe-list](https://www.rubydoc.info/gems/rails-html-sanitizer/Rails/HTML5/SafeListSanitizer)
 - [DHH on Trix](https://signalvnoise.com/) — design rationale
 - [pg_search](https://github.com/Casecommons/pg_search)
 - [TinyMCE Rails (counter-position)](https://github.com/spohlenz/tinymce-rails)

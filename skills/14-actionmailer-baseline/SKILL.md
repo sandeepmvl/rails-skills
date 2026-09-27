@@ -439,11 +439,11 @@ end
 
 - [Rails Guides — Action Mailer Basics](https://guides.rubyonrails.org/action_mailer_basics.html)
 - [Rails Guides — Testing Mailers](https://guides.rubyonrails.org/testing.html#testing-your-mailers)
-- [Postmark Rails docs](https://postmarkapp.com/developer/integrations/ruby-on-rails)
+- [Postmark Rails docs](https://postmarkapp.com/send-email/rails)
 - [SendGrid Rails integration](https://docs.sendgrid.com/for-developers/sending-email/integrating-with-the-smtp-api)
 - [AWS SES via aws-sdk-rails](https://github.com/aws/aws-sdk-rails)
 - [Letter Opener](https://github.com/ryanb/letter_opener)
 - [letter_opener_web](https://github.com/fgrehm/letter_opener_web)
 - [rspec-rails mailer matchers](https://github.com/rspec/rspec-rails) — `have_enqueued_mail`
-- [Email deliverability — Postmark blog](https://postmarkapp.com/guides/email-best-practices)
-- [DKIM / SPF / DMARC — Cloudflare guide](https://www.cloudflare.com/learning/email-security/email-spoofing/)
+- [Email deliverability — Postmark guide](https://postmarkapp.com/guides/deliverability)
+- [DKIM / SPF / DMARC — Cloudflare guide](https://www.cloudflare.com/learning/email-security/dmarc-dkim-spf/)

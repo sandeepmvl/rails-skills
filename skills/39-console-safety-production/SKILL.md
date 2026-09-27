@@ -15,24 +15,28 @@ Why it matters: most "production outage caused by a 1-line typo" incidents trace
 
 ## Pattern 1: Production console warning (Rails 7.2+)
 
-Rails 7.2 shipped the production console warning by default. IRB renders a prominent prompt with the environment name when launched against production, e.g.:
+Rails 7.2 shipped a customized console prompt by default (`rails/rails` PR #50796). IRB renders the app name plus an abbreviated, colorized environment tag when launched against production, e.g.:
 
 ```
 Loading production environment (Rails 8.0.0)
-production> User.first
+my-app(prod)> User.first
 ```
 
-The prompt label and color are controlled by IRB itself, not by a Rails config flag — there's no `config.console_environment_color`. Customize via `~/.irbrc` if you want a different prompt:
+The prompt label and color are controlled by IRB itself (seeded with the app name and env by `Rails::Console`), not by a Rails config flag — there's no `config.console_environment_color`. `Rails::Console#irb_console` calls `IRB.setup(nil)` (which loads your `~/.irbrc`) and then **unconditionally** assigns `IRB.conf[:PROMPT][:RAILS_PROMPT] = ...` afterward — so overwriting `IRB.conf[:PROMPT][:RAILS_PROMPT]` from `.irbrc` has **no effect**; Rails reassigns that exact key right after your file loads. Define your own named prompt key instead and select it explicitly:
 
 ```ruby
 # ~/.irbrc — applies to your shell, not the app
-IRB.conf[:PROMPT][:PRODUCTION] = {
-  PROMPT_I: "\e[31mproduction>\e[0m ",
-  PROMPT_S: "\e[31mproduction*\e[0m ",
-  PROMPT_C: "\e[31mproduction?\e[0m ",
+env_label = defined?(Rails) ? Rails.env[0, 4] : "?"
+IRB.conf[:PROMPT][:MY_PROMPT] = {
+  PROMPT_I: "\e[31m%N(#{env_label})>\e[0m ",
+  PROMPT_S: "\e[31m%N(#{env_label})*\e[0m ",
+  PROMPT_C: "\e[31m%N(#{env_label})?\e[0m ",
   RETURN:   "=> %s\n"
 }
+IRB.conf[:PROMPT_MODE] = :MY_PROMPT
 ```
+
+Build the environment label from `Rails.env` (as above) rather than hard-coding `"prod"` — the same `.irbrc` also runs your development and staging consoles, and a hard-coded label mislabels every environment except production.
 
 ## Pattern 2: Sandbox mode
 
@@ -43,6 +47,7 @@ bin/rails console --sandbox
 ```
 Loading production environment in sandbox (Rails 8.0.0)
 Any modifications you make will be rolled back on exit
+my-app(prod)>
 ```
 
 All DB writes wrap in a transaction that rolls back on exit. The default for exploratory work in production.
@@ -278,8 +283,9 @@ For everything else: write the script, get it reviewed, run it deliberately.
 ## Sources
 
 - [Rails console docs](https://guides.rubyonrails.org/command_line.html#bin-rails-console)
-- [Rails 7.2 production console warning](https://github.com/rails/rails/pull/49432)
-- [web-console RCE history](https://www.rapid7.com/blog/post/2017/03/27/heres-what-you-need-to-know-about-the-new-rails-vulnerability/)
-- [Sandbox mode](https://api.rubyonrails.org/classes/Rails/ConsoleMethods.html)
+- [Rails 7.2 customized console prompt (PR #50796)](https://github.com/rails/rails/pull/50796)
+- [Rails 8.0 IRBConsole source (`PROMPT_MODE` selection logic)](https://github.com/rails/rails/blob/v8.0.0/railties/lib/rails/commands/console/irb_console.rb)
+- [web-console RCE history (CVE-2015-3224)](https://www.rapid7.com/db/modules/exploit/multi/http/rails_web_console_v2_code_exec/)
+- [Sandbox mode](https://api.rubyonrails.org/classes/Rails/Console.html)
 - [Strong Migrations](https://github.com/ankane/strong_migrations)
 - [The story of the production console](https://m.signalvnoise.com/) — Basecamp post-mortems

@@ -11,9 +11,9 @@ description: Interview the developer about their Ruby on Rails project (app type
 
 AI coding agents fail at Rails not because they don't know Ruby syntax — they fail because they don't know **which Rails** the user is on. A `rails new` for a Hotwire monolith looks nothing like a Rails-API + React SPA. A Rails 4 legacy app being migrated looks nothing like a greenfield Rails 8 app. Loading every skill in the pack into context wastes tokens and confuses the agent. This skill narrows the context to what matters.
 
-## Rails 8 defaults (authoritative as of Rails 8.0)
+## Rails 8 defaults (authoritative as of Rails 8.1, current stable)
 
-When the user says "Rails 8 defaults," they mean this stack — confirmed against the [official Rails 8 launch post](https://rubyonrails.org/2024/11/7/rails-8-no-paas-required):
+When the user says "Rails 8 defaults," they mean this stack — confirmed against the [official Rails 8 launch post](https://rubyonrails.org/2024/11/7/rails-8-no-paas-required) and the [Rails 8.1 release notes](https://guides.rubyonrails.org/8_1_release_notes.html). Rails 8.1 keeps every 8.0 default below unchanged and adds features on top (Active Job Continuations, structured event reporting via `Rails.event`, local CI via `config/ci.rb`) — see the relevant downstream skill for those.
 
 | Layer | Rails 8 default | Notes |
 |---|---|---|
@@ -176,7 +176,7 @@ This is a multi-month process for non-trivial apps, not a single command. Do not
 
 1. Confirm current Ruby + Rails versions from `Gemfile` and `Gemfile.lock`.
 2. Confirm the target version.
-3. Recommend the `next_rails` gem (latest 1.6.0+) for dual-booting: it creates `Gemfile.next` + `Gemfile.next.lock` and switches via `BUNDLE_GEMFILE`. Add `next_rails` outside any group so `NextRails.next?` is available everywhere.
+3. Recommend the `next_rails` gem (latest 1.7.0+) for dual-booting: it creates `Gemfile.next` + `Gemfile.next.lock` and switches via `BUNDLE_GEMFILE`. Add `next_rails` outside any group so `NextRails.next?` is available everywhere.
 4. Generate an upgrade plan, **one minor version at a time** (e.g. 4.2 → 5.0 → 5.1 → 5.2 → 6.0 → 6.1 → 7.0 → 7.1 → 7.2 → 8.0). Never skip versions.
 5. For each hop, the steps are: bump Gemfile, `bundle update rails`, run `rails app:update` (carefully review diffs in `config/`), run the test suite, fix deprecations, ship to staging, ship to prod, then begin the next hop.
 

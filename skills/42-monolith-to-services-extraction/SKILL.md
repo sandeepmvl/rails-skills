@@ -258,6 +258,6 @@ You'll be tempted to write a one-off script that "syncs" the legacy DB to the ne
 
 - [StranglerFigApplication — Martin Fowler](https://martinfowler.com/bliki/StranglerFigApplication.html)
 - [How Shopify decoupled their monolith — Shopify Engineering](https://shopify.engineering/)
-- [The Strangler Fig — Sam Newman](https://samnewman.io/blog/2020/12/01/strangler-fig/)
+- [The Strangler Fig — Sam Newman](https://samnewman.io/patterns/refactoring/strangler-fig-application/)
 - [Scientist gem (used by GitHub for dual-runs)](https://github.com/github/scientist)
 - [Branch by abstraction — Trunk Based Development](https://trunkbaseddevelopment.com/branch-by-abstraction/)

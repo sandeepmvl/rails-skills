@@ -9,7 +9,7 @@ description: Upgrade a Ruby on Rails app from 4.x to 5.x — dual-boot via next_
 
 ## The opinion
 
-> **Dual-boot with `next_rails`. Hop 4.2 → 5.0 → 5.1 → 5.2. Ruby 2.2.2+ for Rails 5.0; Ruby 2.5+ for 5.2. Budget weeks-to-months for a non-trivial app.**
+> **Dual-boot with `next_rails`. Hop 4.2 → 5.0 → 5.1 → 5.2. Ruby 2.2.2+ required for the whole 5.0–5.2 series (Rails' own gemspec never raised the floor within Rails 5). Budget weeks-to-months for a non-trivial app.**
 
 ## The hop sequence
 

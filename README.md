@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Skills format](https://img.shields.io/badge/format-Anthropic%20Skills-blue)](https://docs.claude.com)
-[![Rails](https://img.shields.io/badge/Rails-8.0-cc0000)](https://rubyonrails.org)
+[![Rails](https://img.shields.io/badge/Rails-8.1-cc0000)](https://rubyonrails.org)
 
 ## The problem
 
