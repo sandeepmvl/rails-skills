@@ -4,7 +4,7 @@ All notable changes to `rails-skills` are documented in this file.
 
 ---
 
-## [0.1.0] — 2024-09-26
+## [0.1.0] — 2026-09-26
 
 ### v0.1.0: Production-grade Claude Skills for Rails 8 — Foundation Release
 
