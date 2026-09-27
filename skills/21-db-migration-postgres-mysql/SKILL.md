@@ -130,10 +130,11 @@ end
 # Gemfile — before
 gem "pg"
 
-# After — Rails 8.0 (Trilogy is the default for `rails new`, ships with Rails)
-# Existing apps still need to add the gem.
+# After — Rails 8.0 (`rails new --database=trilogy`; `sqlite3` remains the
+# unqualified `rails new` default, and plain `--database=mysql` still
+# generates a mysql2-based config, not Trilogy)
 gem "trilogy"
-# OR (older Rails, or you prefer libmysqlclient)
+# OR (`--database=mysql`, or you prefer libmysqlclient)
 # gem "mysql2"
 ```
 
@@ -156,7 +157,7 @@ production:
 
 **Trilogy notes:**
 - C extension (small native build), but does NOT depend on `libmysqlclient` — ships its own embedded client. Much simpler Docker builds.
-- Default MySQL adapter in Rails 8.0 (`rails new --database=trilogy`).
+- An explicit, opt-in database option in Rails 8.0 (`rails new --database=trilogy`) — not the default; `--database=mysql` still maps to `mysql2`.
 - For Rails 7.x: add `gem "trilogy"` manually and set `adapter: trilogy`.
 - Slightly different connection parameter names; check the trilogy README.
 
